@@ -4,16 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MARKOFFERT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <header>
-  <nav>
-    <button class="tab-btn active" data-tab="home">Hem</button>
-    <button class="tab-btn" data-tab="offert">Offert</button>
-    <button class="tab-btn" data-tab="omoss">Om oss</button>
-    <button class="tab-btn" data-tab="info">Info</button>
-  </nav>
+  <header>
+    <div class="logo">MARKOFFERT</div>
+    <nav>
+      <button class="tab-btn active" data-tab="home">Hem</button>
+      <button class="tab-btn" data-tab="offert">Offert</button>
+      <button class="tab-btn" data-tab="omoss">Om oss</button>
+      <button class="tab-btn" data-tab="info">Info</button>
+    </nav>
   </header>
   <main class="container">
     <section id="home" class="active">
@@ -76,7 +80,7 @@
       <p>E-post: info@markoffert.se<br>Telefon: 070-123 45 67</p>
     </section>
   </main>
-  <footer>&copy; 2001 MARKOFFERT</footer>
+  <footer>&copy; 2001-<span id="year"></span> MARKOFFERT</footer>
   <script src="app.js"></script>
 </body>
 </html>
