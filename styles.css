@@ -143,6 +143,12 @@
       font-weight: bold;
       color: var(--accent-color);
     }
+    #priceAfterDeduction {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--text-color);
+    }
     .confirmation {
       background: var(--accent-color);
       color: var(--bg-color);
