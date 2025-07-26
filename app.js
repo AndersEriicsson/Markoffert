@@ -46,11 +46,29 @@ priceEstimate.textContent = "Uppskattat totalpris visas här...";
 const min = Math.round(total * 0.9);
 const max = Math.round(total * 1.1);
 priceEstimate.textContent = `Uppskattat pris: ca ${min.toLocaleString('sv-SE')}–${max.toLocaleString('sv-SE')} kr`;
+  const deductionSelect = document.getElementById('deduction');
+  const priceAfter = document.getElementById('priceAfterDeduction');
+  if (deductionSelect) {
+    let rate = 0;
+    if (deductionSelect.value === 'rot') rate = 0.3;
+    if (deductionSelect.value === 'rut') rate = 0.5;
+    if (rate > 0) {
+      const minAfter = Math.round(min * (1 - rate));
+      const maxAfter = Math.round(max * (1 - rate));
+      priceAfter.textContent = `Efter avdrag: ca ${minAfter.toLocaleString('sv-SE')}–${maxAfter.toLocaleString('sv-SE')} kr`;
+    } else {
+      priceAfter.textContent = '';
+    }
+  }
 }
 }
 
 document.getElementById('tasks').addEventListener('input', calculatePrice);
 document.getElementById('tasks').addEventListener('change', calculatePrice);
+const deductionSelect = document.getElementById('deduction');
+if (deductionSelect) {
+  deductionSelect.addEventListener('change', calculatePrice);
+}
 
 function createTaskRow() {
 const row = document.createElement('div');
