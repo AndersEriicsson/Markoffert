@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MARKOFFERT</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -63,7 +63,19 @@
         <div class="field-group"><label for="namn">Namn</label><input id="namn" type="text" name="namn" required></div>
         <div class="field-group"><label for="email">E-post</label><input id="email" type="email" name="email" required></div>
         <div class="field-group"><label for="telefon">Telefon</label><input id="telefon" type="tel" name="telefon" required></div>
+        <div class="field-group">
+          <label for="deduction">ROT/RUT-avdrag</label>
+          <select id="deduction" name="deduction">
+            <option value="none">Inget avdrag</option>
+            <option value="rot">ROT 30%</option>
+            <option value="rut">RUT 50%</option>
+          </select>
+        </div>
         <div id="priceEstimate">Uppskattat totalpris visas här...</div>
+        <div id="priceAfterDeduction" class="deducted-price"></div>
+        <div class="field-group">
+          <label><input type="checkbox" id="gdpr" required> Jag godkänner att mina uppgifter behandlas enligt GDPR</label>
+        </div>
         <button type="submit" class="primary">Skicka förfrågan</button>
       </form>
       <div class="confirmation" id="confirmationBox"></div>
