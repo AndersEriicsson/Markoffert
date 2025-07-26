@@ -144,15 +144,17 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
   });
 });
 
-document.querySelector(".logo").addEventListener("click", e => {
-  document
-    .querySelectorAll(".tab-btn")
-    .forEach(b => b.classList.remove("active"));
-  document
-    .querySelectorAll("section")
-    .forEach(s => s.classList.remove("active"));
-  document.querySelector('[data-tab="home"]').classList.add("active");
-  document.getElementById("home").classList.add("active");
+document.querySelectorAll(".logo, .hero-logo").forEach(el => {
+  el.addEventListener("click", () => {
+    document
+      .querySelectorAll(".tab-btn")
+      .forEach(b => b.classList.remove("active"));
+    document
+      .querySelectorAll("section")
+      .forEach(s => s.classList.remove("active"));
+    document.querySelector('[data-tab="home"]').classList.add("active");
+    document.getElementById("home").classList.add("active");
+  });
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
