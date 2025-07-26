@@ -4,172 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MARKOFFERT</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #212121;
-      color: #e0e0e0;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.5rem;
-      background: #2c2c2c;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid #333;
-    }
-    nav button {
-      background: transparent;
-      border: none;
-      color: #e0e0e0;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: background 0.2s, color 0.2s;
-      cursor: pointer;
-    }
-    nav button.active,
-    nav button:hover {
-      background: #3f3f3f;
-    }
-    section {
-      display: none;
-      padding: 2rem 1rem;
-      background: #2b2b2b;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-      margin-bottom: 2rem;
-    }
-    section.active {
-      display: block;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #ffffff;
-    }
-    h2 {
-      font-size: 1.4rem;
-      margin: 1.5rem 0 0.75rem;
-      color: #ffffff;
-    }
-    p, ul {
-      margin-bottom: 1rem;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    ul li {
-      background: #3a3a3a;
-      margin: 0.5rem 0;
-      padding: 0.75rem;
-      border-radius: 8px;
-    }
-    form {
-      background: #3a3a3a;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-    }
-    .field-group {
-      margin-bottom: 1rem;
-      text-align: left;
-    }
-    .field-group label {
-      display: block;
-      margin-bottom: 0.25rem;
-      font-weight: bold;
-    }
-    .field-group select,
-    .field-group input,
-    .field-group textarea {
-      width: 100%;
-      padding: 0.5rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      background: #2c2c2c;
-      color: #e0e0e0;
-    }
-    #tasks { margin-bottom: 1rem; }
-    .task-row {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 0.75rem;
-    }
-    .task-row select { flex: 2; }
-    .task-row input { flex: 1; }
-    button.primary {
-      background: #4cafef;
-      color: #212121;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 0.5rem;
-    }
-    button.primary:hover {
-      background: #3797e7;
-    }
-    #priceEstimate {
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #4cafef;
-    }
-    .confirmation {
-      background: #4cafef;
-      color: #212121;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-top: 1rem;
-      display: none;
-    }
-    .file-upload {
-      background: #2c2c2c;
-      border: 2px dashed #4cafef;
-      border-radius: 8px;
-      padding: 1rem;
-      text-align: center;
-      color: #e0e0e0;
-      cursor: pointer;
-      transition: border-color 0.3s;
-    }
-    .file-upload:hover {
-      border-color: #3797e7;
-    }
-    .file-upload input {
-      display: none;
-    }
-    .file-list {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #bbb;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+   <header>
   <nav>
     <button class="tab-btn active" data-tab="home">Hem</button>
     <button class="tab-btn" data-tab="offert">Offert</button>
     <button class="tab-btn" data-tab="omoss">Om oss</button>
     <button class="tab-btn" data-tab="info">Info</button>
   </nav>
-
-  <div class="container">
+  </header>
+  <main class="container">
     <section id="home" class="active">
       <h1>Välkommen till MARKOFFERT</h1>
       <p>Välkommen till MARKOFFERT – din partner för markarbeten<br>
@@ -196,23 +42,23 @@
         </div>
         <button type="button" id="addTask" class="primary">+ Lägg till arbete</button>
         <h2>Fastighetsinformation</h2>
-        <div class="field-group"><label>Typ av fastighet</label><select name="fastighetstyp"><option>Villa</option><option>Radhus</option><option>Fritidshus</option><option>Företag</option><option>Offentlig plats</option></select></div>
-        <div class="field-group"><label>Tillgång till tomt</label><select name="tomtTillgang"><option>Öppen</option><option>Inhägnad</option><option>Svåråtkomlig</option></select></div>
-        <div class="field-group"><label>Tidigare arbete utfört?</label><select name="tidigare"><option>Ja</option><option>Nej</option></select></div>
-        <div class="field-group"><label>Typ av mark</label><select name="marktTyp"><option>Gräsmatta</option><option>Grus</option><option>Jord</option><option>Berg</option><option>Blandat</option></select></div>
-        <div class="field-group"><label>Lutning</label><select name="lutning"><option>Plan</option><option>Lätt lutning</option><option>Brant</option></select></div>
-        <div class="field-group"><label>Maskinåtkomst</label><select name="maskinAtkomst"><option>Stor maskin</option><option>Liten maskin</option><option>Ingen maskin</option></select></div>
-        <div class="field-group"><label>Begränsningar</label><textarea name="begransningar" rows="3" placeholder="Fri text"></textarea></div>
+        <div class="field-group"><label for="fastighetstyp">Typ av fastighet</label><select id="fastighetstyp" name="fastighetstyp" required><option>Villa</option><option>Radhus</option><option>Fritidshus</option><option>Företag</option><option>Offentlig plats</option></select></div>
+        <div class="field-group"><label for="tomtTillgang">Tillgång till tomt</label><select id="tomtTillgang" name="tomtTillgang" required><option>Öppen</option><option>Inhägnad</option><option>Svåråtkomlig</option></select></div>
+        <div class="field-group"><label for="tidigare">Tidigare arbete utfört?</label><select id="tidigare" name="tidigare" required><option>Ja</option><option>Nej</option></select></div>
+        <div class="field-group"><label for="marktTyp">Typ av mark</label><select id="marktTyp" name="marktTyp" required><option>Gräsmatta</option><option>Grus</option><option>Jord</option><option>Berg</option><option>Blandat</option></select></div>
+        <div class="field-group"><label for="lutning">Lutning</label><select id="lutning" name="lutning" required><option>Plan</option><option>Lätt lutning</option><option>Brant</option></select></div>
+        <div class="field-group"><label for="maskinAtkomst">Maskinåtkomst</label><select id="maskinAtkomst" name="maskinAtkomst" required><option>Stor maskin</option><option>Liten maskin</option><option>Ingen maskin</option></select></div>
+        <div class="field-group"><label for="begransningar">Begränsningar</label><textarea id="begransningar" name="begransningar" rows="3" placeholder="Fri text"></textarea></div>
         <h2>Ladda upp bilder</h2>
         <label class="file-upload">
           Klicka för att välja bilder
-          <input type="file" id="imageUpload" name="bilder[]" accept="image/*" multiple>
+          <input type="file" id="imageUpload" name="bilder[]" accept="image/*" multiple aria-label="Ladda upp bilder">
         </label>
         <div class="file-list" id="fileList">Inga filer valda</div>
         <h2>Kontaktuppgifter</h2>
-        <div class="field-group"><label>Namn</label><input type="text" name="namn" required></div>
-        <div class="field-group"><label>E-post</label><input type="email" name="email" required></div>
-        <div class="field-group"><label>Telefon</label><input type="tel" name="telefon" required></div>
+        <div class="field-group"><label for="namn">Namn</label><input id="namn" type="text" name="namn" required></div>
+        <div class="field-group"><label for="email">E-post</label><input id="email" type="email" name="email" required></div>
+        <div class="field-group"><label for="telefon">Telefon</label><input id="telefon" type="tel" name="telefon" required></div>
         <div id="priceEstimate">Uppskattat totalpris visas här...</div>
         <button type="submit" class="primary">Skicka förfrågan</button>
       </form>
@@ -229,113 +75,8 @@
       <p>Vi behandlar dina uppgifter säkert och delar dem aldrig utan ditt medgivande.</p>
       <p>E-post: info@markoffert.se<br>Telefon: 070-123 45 67</p>
     </section>
-  </div>
-
-  <script>
-    const arbeten = [
-      { name: "Kantsten", price: 1000, unit: "m" },
-      { name: "Marksten", price: 800, unit: "m²" },
-      { name: "Dränering", price: 600, unit: "m" },
-      { name: "Schakt/grävning", price: 300, unit: "m³" },
-      { name: "Asfaltering", price: 900, unit: "m²" },
-      { name: "Plattläggning", price: 700, unit: "m²" },
-      { name: "Fyllnadsmaterial", price: 500, unit: "ton" },
-      { name: "Jordutbyte", price: 350, unit: "m³" },
-      { name: "Rörläggning", price: 650, unit: "m" },
-      { name: "Markbelysning", price: 1200, unit: "punkt" },
-      { name: "Stödmur", price: 1500, unit: "m" },
-      { name: "Trappa", price: 900, unit: "steg" },
-      { name: "Kabelgrävning", price: 400, unit: "m" },
-      { name: "Markrensning", price: 500, unit: "timme" }
-    ];
-
-    function populate(select) {
-      arbeten.forEach(a => {
-        const min = Math.round(a.price * 0.9);
-        const max = Math.round(a.price * 1.1);
-        const o = document.createElement('option');
-        o.value = a.name;
-        o.setAttribute('data-price', a.price);
-        o.textContent = `${a.name} (ca ${min}–${max} kr/${a.unit})`;
-        select.appendChild(o);
-      });
-    }
-    populate(document.querySelector('select[name="jobbTyp[]"]'));
-
-    function calculatePrice() {
-      let total = 0;
-      document.querySelectorAll('.task-row').forEach(row => {
-        const sel = row.querySelector('select');
-        const inp = row.querySelector('input');
-        const price = parseFloat(sel.selectedOptions[0].getAttribute('data-price')) || 0;
-        const qty = parseFloat(inp.value.replace(',', '.')) || 0;
-        total += price * qty;
-      });
-      const priceEstimate = document.getElementById('priceEstimate');
-      if (total === 0) {
-        priceEstimate.textContent = "Uppskattat totalpris visas här...";
-      } else {
-        const min = Math.round(total * 0.9);
-        const max = Math.round(total * 1.1);
-        priceEstimate.textContent = `Uppskattat pris: ca ${min.toLocaleString('sv-SE')}–${max.toLocaleString('sv-SE')} kr`;
-      }
-    }
-
-    document.getElementById('tasks').addEventListener('input', calculatePrice);
-    document.getElementById('tasks').addEventListener('change', calculatePrice);
-
-    document.getElementById('addTask').addEventListener('click', () => {
-      const tasks = document.getElementById('tasks');
-      const row = document.createElement('div');
-      row.className = 'task-row';
-      const sel = document.createElement('select');
-      sel.name = 'jobbTyp[]';
-      sel.innerHTML = '<option value="">— Välj arbetstyp —</option>';
-      populate(sel);
-      const inp = document.createElement('input');
-      inp.type = 'text';
-      inp.name = 'jobbMängd[]';
-      inp.placeholder = 'Mängd/enhet';
-      row.append(sel, inp);
-      tasks.appendChild(row);
-      calculatePrice();
-    });
-
-    const imageUpload = document.getElementById('imageUpload');
-    const fileList = document.getElementById('fileList');
-    imageUpload.addEventListener('change', () => {
-      if (imageUpload.files.length === 0) {
-        fileList.textContent = 'Inga filer valda';
-      } else {
-        const names = Array.from(imageUpload.files).map(f => f.name).join(', ');
-        fileList.textContent = 'Valda filer: ' + names;
-      }
-    });
-
-    document.getElementById('offerForm').addEventListener('submit', e => {
-      e.preventDefault();
-      const offerId = 'OFFERT-' + Date.now();
-      document.getElementById('confirmationBox').textContent = `Din offertförfrågan (ID: ${offerId}) har skickats.`;
-      document.getElementById('confirmationBox').style.display = 'block';
-      e.target.reset();
-      document.getElementById('tasks').innerHTML = `
-        <div class="task-row">
-          <select name="jobbTyp[]"><option value="">— Välj arbetstyp —</option></select>
-          <input type="text" name="jobbMängd[]" placeholder="Mängd/enhet">
-        </div>`;
-      populate(document.querySelector('select[name="jobbTyp[]"]'));
-      document.getElementById('priceEstimate').textContent = "Uppskattat totalpris visas här...";
-      fileList.textContent = 'Inga filer valda';
-    });
-
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById(btn.dataset.tab).classList.add('active');
-      });
-    });
-  </script>
+  </main>
+  <footer>&copy; 2023 MARKOFFERT</footer>
+  <script src="app.js"></script>
 </body>
 </html>
