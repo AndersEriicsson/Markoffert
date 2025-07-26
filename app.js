@@ -108,3 +108,5 @@ btn.classList.add('active');
 document.getElementById(btn.dataset.tab).classList.add('active');
 });
 });
+
+document.getElementById('year').textContent = new Date().getFullYear();
