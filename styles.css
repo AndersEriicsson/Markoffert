@@ -18,7 +18,7 @@
       margin: 2rem auto;
       padding: 1rem;
     }
-    header {
+header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -36,9 +36,6 @@
       font-weight: 600;
       font-size: 1.2rem;
       color: var(--accent-color);
-    }
-    .logo img {
-      height: 40px;
     }
     nav {
       display: flex;
@@ -193,4 +190,15 @@
 @media (max-width: 600px) {
   .task-row { flex-direction: column; }
   nav { flex-wrap: wrap; justify-content: center; }
+}
+.hero {
+  background: var(--surface-color);
+  text-align: center;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+.hero-logo img {
+  width: 300px;
+  max-width: 80%;
+  height: auto;
 }
